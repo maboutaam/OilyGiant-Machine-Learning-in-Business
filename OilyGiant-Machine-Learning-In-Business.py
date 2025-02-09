@@ -98,12 +98,6 @@ for i, df in enumerate([geo_data_0, geo_data_1, geo_data_2]):
 
 # ### No missing values in any of the regions's datasets.
 
-# <div class="alert alert-block alert-warning">
-# <b>Reviewer's comment</b> <a class="tocSkip"></a>
-# 
-# What does this code mean? You don't have column with name 'some_column':) So, this code does nothing
-# </div>
-
 # ### Data Types are properly converted.
 
 # In[10]:
@@ -137,12 +131,6 @@ print(merged_data.info())
 
 merged_data.head()
 
-
-# <div class="alert alert-block alert-warning">
-# <b>Reviewer's comment</b> <a class="tocSkip"></a>
-# 
-# What is the purpose of this merging? Further you work with different datasets separately. So, maybe this part is useless?
-# </div>
 
 # ### Displaying the first 5 rows of the merged dataset.
 
@@ -273,21 +261,6 @@ plt.show()
 # Geo Data 2 shows positive correlation between predicted and actual reserves and more scatter than Geo Data 1. Also, there is less variability in predictions in comparison to Geo Data 0 but higher than Geo Data 1.
 # The Linear regression works well with Geo Data 1, thus it has the most accurate predictions than the two other datasets. 
 
-# <div class="alert alert-block alert-danger">
-# <b>Reviewer's comment</b> <a class="tocSkip"></a>
-# 
-# 1. Your results are correct but you have a lot of duplicate code. You can avoid this duplicate code using a simple loop which iterates through 3 regions. This simple thing makes your code looks much professionally. And the same situation with your graphs.
-# 2. It's not the best idea to use such formatting for conclusion. This format should be used only for titles. So, please, fix it:)
-#     
-# </div>
-
-# <div class="alert alert-block alert-success">
-# <b>Reviewer's comment V2</b> <a class="tocSkip"></a>
-# 
-# Okay, thank you
-# 
-# </div>
-
 # In[20]:
 
 
@@ -346,22 +319,6 @@ for i, region in enumerate(regions):
     else:
         print(f"{region_names[i]} is not economically feasible with average reserves below the break-even reserves.\n")
 
-
-# <div class="alert alert-block alert-danger">
-# <b>Reviewer's comment</b> <a class="tocSkip"></a>
-# 
-# 1. The value 111.11 is correct. But you should calculate it in the code using the constants given in the project description. So, creates corresponding variables for these constants and calculate breakeven_reserves using them.
-# 2. The idea to use such loop with if-else is a good one:) But you should calculate values for avg_reserves here in the code. You can't set them manually.
-# 3. The situation with the duplicate code is the same as above.
-#     
-# </div>
-
-# <div class="alert alert-block alert-success">
-# <b>Reviewer's comment V2</b> <a class="tocSkip"></a>
-# 
-# Good job
-# 
-# </div>
 
 # ### The profit was calculated based on the given and its is based not only on the potential profit but also on the average of the actual reserves available.
 
@@ -500,13 +457,6 @@ best_region = max(acceptable_regions, key=acceptable_regions.get)  # Find highes
 
 print(f"Best region for development is {best_region} with an expected profit of ${profits[best_region]:,.2f}.")
 
-
-# <div class="alert alert-block alert-warning">
-# <b>Reviewer's comment V2</b> <a class="tocSkip"></a>
-# 
-# Sorry, but I don't understand this 1.11 part at all. What the purpose of it? You have all the necessary functions for profit and boostrap calculations below. So, probably this part should be removed to avoid such confusions. If you think this part is useful then it's better to write an explanation for this part.
-# 
-# </div>
 
 # The above coding are for questions 4.1-4.2-4.3. In these questions I picked the wells with the highest values of predictions. Summarized the target volume of reserves in accordance with these predictions. Also, provided findings and suggested a region for oil wells' development and justify the choice. In addition, calculated the profit for the obtained volume of reserves.
 
@@ -676,35 +626,6 @@ plt.show()
 
 # According to the above figure, each bar represents a region. Region 0 had a mean profit less than region 1 but higher than region 2. Region 1 had the lowest risk of loss rate of 2.1% while Region 0 had 4.3% and Region 2 had 9.7%. The highest mean profit is for Region 1 of around $46,488.
 
-# <div class="alert alert-block alert-danger">
-# <b>Reviewer's comment</b> <a class="tocSkip"></a>
-# 
-# Unfortunately, parts 1.15 and 1.16 are not correct. You have written many different functions that do almost the same things. However, they do not do exactly what is required. In these two parts you need to write only 2 functions: a function for calculating profit and a function for bootstrap. There is no need to write anything additional.
-#     
-# In the function for calculating profit, you need to calculate profit using not only predictions, but also real target values. You need to select the top wells using predictions, and then calculate the profit according to the corresponding targets.
-#     
-# In the bootstrap function, you need to perform the bootstrap itself, as well as calculate the average profit, construct a confidence interval, and calculate risks. All these values are calculated based on the bootstrap results.
-#     
-# Risk is the probability of experiencing losses. To calculate this probability, you need to calculate the proportion of cases when the profit turned out to be negative.
-#     
-# Now the most important thing. In the bootstrap lesson there is an example about students and lessons. Do you remember him? Here you need to do almost the same thing. The idea is exactly the same. The code will also be very similar.
-#     
-# </div>
-
-# <div class="alert alert-block alert-danger">
-# <b>Reviewer's comment V2</b> <a class="tocSkip"></a>
-# 
-# Generally your calculations looks much better than previous time. But unfortunately the results are not correct. The risk in each region shold be more than zero. The problem may be with indexes. If indexes in targets and predictions are not the same the resuls will be wrong. So, pleas, check the indexes and make them the same. If I'm not right about indexes then the mistake is somewhere else. Double check the code and try to get the risk in each region more than zero.
-# 
-# </div>
-
-# <div class="alert alert-block alert-success">
-# <b>Reviewer's comment V3</b> <a class="tocSkip"></a>
-# 
-# Everything is correct now. Good job! Good luck with the next projects:)
-#     
-# </div>
-
 # ### 5.3
 # 
 # Region 0:
@@ -735,22 +656,6 @@ plt.show()
 # Region 0 showed high profitablity but higher risk rate than Region 1.
 # Region 2 had lowest profitability and the highest risk rate of 9.7%.
 # According to our research we can assume that Region 1 is the most suitable location forthe new Oil Well development of OilyGiant mining company.
-
-# <div class="alert alert-block alert-danger">
-# <b>Reviewer's comment</b> <a class="tocSkip"></a>
-# 
-# Please, do not use such formatting for the conclusions. This formatting can be use for titles only. For the conclusions/finding it's okay to use simple text.
-#     
-# </div>
-
-# <div class="alert alert-block alert-success">
-# <b>Reviewer's comment V2</b> <a class="tocSkip"></a>
-# 
-# Thank you!
-#     
-# </div>
-
-# In[ ]:
 
 
 
